@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Checkboard</title>
+</head>
+<body>
+    <div class="container">
+        {% for j in range(y) %}
+            <div class="row">
+                {% for i in range(x) %}
+                    {% if j%2 == 0 %}
+                        <div class="box" style="background-color: {{ loop.cycle(color1, color2) }};"></div>
+                    {% endif %}
+                    {% if j%2 != 0 %}
+                        <div class="box" style="background-color: {{ loop.cycle(color2, color1) }};"></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
